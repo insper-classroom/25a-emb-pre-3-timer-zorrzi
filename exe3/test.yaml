@@ -1,0 +1,79 @@
+name: exe3
+author: Rafael Corsi
+version: 1
+
+steps:
+  - delay: 250ms
+
+  - expect-pin:
+      part-id: ledr
+      pin: A 
+      value: 0
+
+## btn r long pressed
+  - set-control:
+      part-id: btnr
+      control: pressed
+      value: 1
+  - delay: 550ms
+  - set-control:
+      part-id: btnr
+      control: pressed
+      value: 0
+  - delay: 50ms
+  - expect-pin:
+      part-id: ledr
+      pin: A 
+      value: 1
+
+  - delay: 100ms
+
+## btn r long pressed
+  - set-control:
+      part-id: btnr
+      control: pressed
+      value: 1
+  - delay: 550ms
+  - set-control:
+      part-id: btnr
+      control: pressed
+      value: 0
+  - delay: 50ms
+  - expect-pin:
+      part-id: ledr
+      pin: A 
+      value: 0
+
+  - delay: 100ms
+
+## btn r short pressed
+  - set-control:
+      part-id: btnr
+      control: pressed
+      value: 1
+  - delay: 100ms
+  - set-control:
+      part-id: btnr
+      control: pressed
+      value: 0
+  - delay: 50ms
+  - expect-pin:
+      part-id: ledr
+      pin: A 
+      value: 0
+
+## btn r short pressed
+  - set-control:
+      part-id: btnr
+      control: pressed
+      value: 1
+  - delay: 100ms
+  - set-control:
+      part-id: btnr
+      control: pressed
+      value: 0
+  - delay: 50ms
+  - expect-pin:
+      part-id: ledr
+      pin: A 
+      value: 0

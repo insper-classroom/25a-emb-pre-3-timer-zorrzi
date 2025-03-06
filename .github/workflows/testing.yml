@@ -1,0 +1,22 @@
+name: Build, test, check!
+
+on:
+  push:
+jobs:
+
+  Testing:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        test: [exe1, exe2, exe3]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: insper-embarcados/pico-build@v0
+      - uses: insper-embarcados/actions-wokwi-test@v1
+        with:
+          token: ${{ secrets.WOKWI_CLI_TOKEN }}
+          test_name: ${{ matrix.test }}
+      - uses: insper-embarcados/actions-embedded-check@v1
+        with:
+          c_file: ${{ matrix.test }}/main.c
