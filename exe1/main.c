@@ -7,7 +7,6 @@ const int LED_PIN_R = 4;
 
 volatile int flag_f_r = 0;
 volatile int g_timer_0 = 0;
-volatile bool timer_running = false;
 
 
 void btn_callback(uint gpio, uint32_t events) {
@@ -27,6 +26,8 @@ int main() {
     stdio_init_all();
 
     repeating_timer_t timer_0;
+    bool timer_running = false;
+
 
     gpio_init(LED_PIN_R);
     gpio_set_dir(LED_PIN_R, GPIO_OUT);
