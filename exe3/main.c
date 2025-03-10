@@ -9,7 +9,7 @@ volatile int button_pressed = 0;
 volatile int button_released = 0;
 
 volatile int timer_fired = 0;
-alarm_id_t alarm_id;
+volatile alarm_id_t alarm_id;
 
 
 int64_t alarm_callback(alarm_id_t id, void *user_data) {
